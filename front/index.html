@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>WokiLite Daily Calendar</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <h1>WokiLite Daily Calendar</h1>
+
+  <section id="controls">
+    <label>Date: <input type="date" id="date" /></label>
+    <label>Sector:
+      <select id="sector">
+        <option value="S1">Main Hall</option>
+        <option value="S2">Terrace</option>
+      </select>
+    </label>
+    <label>Party size: <input type="number" id="partySize" min="1" value="2"/></label>
+    <button id="loadSlots">Load Day</button>
+  </section>
+
+  <section id="calendar-section">
+    <h2>Calendar (15-min slots)</h2>
+    <div id="calendar-grid"></div>
+  </section>
+
+  <section id="reservations-section">
+    <h2>Reservations</h2>
+    <label>Filter by sector:
+      <select id="filterSector">
+        <option value="">All</option>
+        <option value="S1">Main Hall</option>
+        <option value="S2">Terrace</option>
+      </select>
+    </label>
+    <div id="reservations-list"></div>
+  </section>
+
+  <script src="main.js"></script>
+</body>
+</html>

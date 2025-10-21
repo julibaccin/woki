@@ -1,0 +1,54 @@
+### 1) Check availability
+GET http://localhost:3000/api/availability?restaurantId=R1&sectorId=S1&date=2025-10-21&partySize=6
+Content-Type: application/json
+
+###
+
+### 2) Create reservation
+POST http://localhost:3000/api/reservations
+Content-Type: application/json
+Idempotency-Key: abc-12345
+
+{
+  "restaurantId": "R1",
+  "sectorId": "S1",
+  "partySize": 6,
+  "startDateTimeISO": "2025-10-21T12:00:00-03:00",
+  "customer": { "name": "Julian", "phone": "+54 9 11 5555-1234", "email": "julian@mail.com" },
+  "notes": "Test"
+}
+
+###
+
+###
+
+### 2.1) Create reservation Invalid Schema
+POST http://localhost:3000/api/reservations
+Content-Type: application/json
+Idempotency-Key: abc-12345
+
+{
+  "restaurantId": "R1",
+  "partySize": 6,
+  "startDateTimeISO": "2025-09-08T12:00:00-03:00",
+  "customer": { "name": "Julian", "phone": "+54 9 11 5555-1234", "email": "julian@mail.com" },
+  "notes": "Test"
+}
+
+###
+
+### 3) Cancel reservation
+DELETE http://localhost:3000/api/reservations/RES_f6281064-12a9-4427-b37a-94dd0cb39329
+Content-Type: application/json
+
+###
+
+### 4) List reservations for a day (all sectors)
+GET http://localhost:3000/api/reservations/day?restaurantId=R1&date=2025-10-21
+Content-Type: application/json
+
+###
+
+### 5) List reservations for a day (specific sector)
+GET http://localhost:3000/api/reservations/day?restaurantId=R1&date=2025-10-21&sectorId=S1
+Content-Type: application/json
