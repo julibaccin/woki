@@ -21,8 +21,18 @@ export function generateSlotsForDay(
       const [startHour, startMinute] = shift.start.split(":").map(Number);
       const [endHour, endMinute] = shift.end.split(":").map(Number);
 
-      const shiftStart = day.set({ hour: startHour, minute: startMinute, second: 0, millisecond: 0 });
-      const shiftEnd = day.set({ hour: endHour, minute: endMinute, second: 0, millisecond: 0 });
+      const shiftStart = day.set({
+        hour: startHour,
+        minute: startMinute,
+        second: 0,
+        millisecond: 0,
+      });
+      const shiftEnd = day.set({
+        hour: endHour,
+        minute: endMinute,
+        second: 0,
+        millisecond: 0,
+      });
 
       addSlots(shiftStart, shiftEnd);
     }

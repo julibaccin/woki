@@ -69,7 +69,8 @@ export async function getAvailabilityUseCase(
             (r) =>
               r.tableIds.includes(t.id) &&
               r.status === "CONFIRMED" &&
-              DateTime.fromISO(r.startDateTimeISO) < DateTime.fromISO(endISO!) &&
+              DateTime.fromISO(r.startDateTimeISO) <
+                DateTime.fromISO(endISO!) &&
               DateTime.fromISO(r.endDateTimeISO) > DateTime.fromISO(startISO!)
           )
       );
